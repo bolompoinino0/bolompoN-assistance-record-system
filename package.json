@@ -1,0 +1,42 @@
+{
+  "name": "assistance-record-system",
+  "version": "1.0.0",
+  "description": "Assistance Record System desktop application",
+  "main": "main.js",
+  "author": "Assistance Record System",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis portable --x64"
+  },
+  "devDependencies": {
+    "electron": "39.2.6",
+    "electron-builder": "27.0.0"
+  },
+  "build": {
+    "appId": "org.assistancerecordsystem.app",
+    "productName": "Assistance Record System",
+    "executableName": "AssistanceRecordSystem",
+    "asar": true,
+    "directories": { "output": "dist" },
+    "files": ["main.js", "Assistance Record System.html", "package.json"],
+    "win": {
+      "target": [
+        { "target": "nsis", "arch": ["x64"] },
+        { "target": "portable", "arch": ["x64"] }
+      ],
+      "artifactName": "Assistance-Record-System-1.0.0-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Assistance Record System",
+      "runAfterFinish": true,
+      "deleteAppDataOnUninstall": false
+    }
+  }
+}
